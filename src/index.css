@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth; /* Ensure smooth scrolling */
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'FuturaMedium', Arial, sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00c3ffc5, #00ff00); /* Light green to darker green */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; /* Hide the actual text color */
+}
+
+h2 {
+  font-size: 3rem;
+  line-height: 1.2;
+  text-align: left;
+  color: white; /* Keep strong contrast */
+}
+
+h3 {
+  font-size: 2rem;
+  text-align: left;
+  color: #c0c0c0; /* Subtle gray for secondary importance */
+}
+
+h4 {
+  font-size: 2rem;
+  text-align: left;
+  color: #ffffff; /* Subtle gray for secondary importance */
+}
+
+h5 {
+  font-family: 'FuturaBook', Arial, sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  color: #ffffff; /* Subtle gray for secondary importance */
+}
+
+ul {
+  font-family: 'FuturaBook', Arial, sans-serif;
+  font-size: 1.5rem;
+  text-align: left;
+  color: #ffffff; /* Subtle gray for secondary importance */
+}
+
+
+@font-face {
+  font-family: 'FuturaBold';
+  src: url('/src/assets/fonts/FuturaBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaMedium';
+  src: url('/src/assets/fonts/FuturaMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuturaBook';
+  src: url('/src/assets/fonts/FuturaBook.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.moving-text {
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+  white-space: nowrap;
+  top: 20px;
+  left: 0;
+}
+
+.hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+body::before {
+  --size: 50px; /* Adjust grid size */
+  --line: rgba(255, 255, 255, 0.15); /* Grid line color and transparency */
+  content: '';
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  background: linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+              linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+  z-index: -1; /* Places it behind all content */
+  pointer-events: none; /* Prevents interaction with the grid */
+  mask: linear-gradient(0deg, transparent 25%, white);
+
+}
+
+.container {
+  padding: 2rem;
+}
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.15)); 
+  border-radius: 0.5rem;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer/Edge */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.slider::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.slider img{
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  object-fit: cover;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.slider-nav button {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.5;
+  transition: opacity ease 250ms;
+  display: block;
+  scroll-margin-top: -9999px;
+}
+
+.slider-nav button:hover {
+  opacity: 1;
+}
+
+.slider-nav button.active{
+  opacity: 1;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0px 15px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+
+.slider-arrow.left {
+  left: -50px;
+}
+
+.slider-arrow.right {
+  right: -50px;
+}
+
+.slider-arrow:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: black;
+}

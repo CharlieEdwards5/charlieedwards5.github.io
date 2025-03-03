@@ -1,0 +1,1 @@
+export const navLists = [{name: "Experience", id: "experience"}];

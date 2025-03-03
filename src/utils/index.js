@@ -1,0 +1,1 @@
+import charliePic from '../assets/charlie.jpg';

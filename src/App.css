@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    line-height: 1.2;
+  }
+  
+  .moving-text {
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute;
+    white-space: nowrap;
+    top: 20px;
+    left: 0;
+  }
+  
+  .hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
